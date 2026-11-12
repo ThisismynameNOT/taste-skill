@@ -1,3 +1,5 @@
+> **Personal fork cleanup:** Use only one `design-taste-frontend` version. This library is a supplemental reference, not Adham Studio's default frontend director. The core frontend skill is in `ThisismynameNOT/Claude` (`CORE_SKILLS.md`).
+
 <p align="center">
   <img src="assets/readme-banner.webp" alt="Taste Skill - Anti-slop Agent Skills for premium frontends" width="100%" />
 </p>
@@ -110,11 +112,7 @@ npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-fro
 
 The install name did not change, so no script updates are needed. The newer SKILL.md replaces the older one in place.
 
-If you depend on the exact behavior of v1 and want to pin to it explicitly:
-
-```bash
-npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend-v1"
-```
+The separate legacy v1 skill is removed from this personal fork to keep only one default taste-skill version. It remains recoverable from branch `backup/skills-before-cleanup-20261113`. If an existing project explicitly requires v1, restore from that branch instead of silently mixing v1 and v2.
 
 See [CHANGELOG.md](CHANGELOG.md) for the full v1 to v2 diff and the rationale.
 
@@ -127,7 +125,6 @@ The `Install name` column is the exact value you pass to `--skill`.
 | Skill (folder) | Install name | Description |
 | --- | --- | --- |
 | **taste-skill** | `design-taste-frontend` | 🆕 **v2 (experimental)** - substantial rewrite of the default skill. Reads the brief, infers the design language, tunes three dials (VARIANCE / MOTION / DENSITY). Brief inference, design-system map, hard em-dash ban, canonical GSAP code skeletons, redesign-audit protocol, strict pre-flight check. Actively iterating toward v2.0.0 stable. |
-| **taste-skill-v1** | `design-taste-frontend-v1` | The original v1 of taste-skill, preserved for projects depending on its exact behavior. Use only if the v2 default breaks something specific in your workflow. |
 | **gpt-tasteskill** | `gpt-taste` | Stricter variant for GPT/Codex: higher layout variance, stronger GSAP direction, aggressive anti-slop. |
 | **image-to-code-skill** | `image-to-code` | Image-first pipeline: generate site references, analyze them, then implement the frontend to match. |
 | **redesign-skill** | `redesign-existing-projects` | Existing projects: audit the UI first, then fix layout, spacing, hierarchy, styling. |
@@ -150,7 +147,6 @@ These produce design images only (no code). Use with ChatGPT Images, Codex image
 ### Which one should I use?
 
 - Start with **taste-skill** for the safest general default. (Now v2 experimental - see what changed in the [CHANGELOG](CHANGELOG.md).)
-- If you depend on the exact behavior of the original taste-skill, install **taste-skill-v1** instead. 
 - Use **gpt-taste** when you want the stricter GPT/Codex-oriented rules and motion/layout enforcement. 
 - Use **image-to-code-skill** for image → analyze → code website workflows. 
 - Use **redesign-skill** to improve an existing codebase instead of greenfield styling. 
